@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>입력 태그</title>
+    <style>
+        textarea{
+            resize: none;
+            /* textarea reset요소 */
+            width: 500px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        입력 태그
+        사용자가 입력을 위한 다양한 방식의 입력 폼을 제공하는 태그들
+        지정된 서버에 입력된 값을 보내거나 받는 역할도 한다.
+        데이터를 전송하거나 받아와야 하는 요소들이기 때문에 설정하는 값들이 많다.
+
+
+
+        1. form태그에 들어가는 속성
+        -action : 실행시킬 주소를 지정
+        입력한 값을 서버나 프로그램 주소로 지정
+        이곳으로 데이터를 전송하려면 브라우저가 전송위치를 알아야 하기 때문에
+        필수적으로 넣는 값
+
+        -method : 서버로 전송되는 데이터의 전송 방식
+        get : 사용하기 쉽다라는 장점이 있지만 전송 가능한 데이터의 길이가 
+        제한된다. 보안에 취약함(url에 데이터를 같이 전송하는 방식)
+        검색이나 조화같은 보안과 관련없는 곳에서 사용
+
+        post : get보다 까다롭다는 단점이 있지만 보안이 더 강화되고, 전송가능한
+        데이터의 길이가 더 많다. (url에 정보를 표시하지 않고 본문에 요청하는 방식)
+        주로 로그인폼이나 회원가입 같은 민감한 정보를 다루는 곳에서 사용
+
+        form태그 안에 들어가는 입력종류의 태그들
+        -input : 다양한 입력 방법을 제공하는 대표적인 태그
+        type속성으로 입력종류를 변경하여 사용할 수 있다.
+
+
+        2. 입력도구에 들어가는 속성
+        -type : input에 들어가는 입력방법을 변경하는 속성
+        -name : 입력태그에서 id와 class와 비슷한 개념으로 쓰이며, css를 
+        주기위해서 생성하는 것은 아니며, 값을 분류하기 위해서 만든 속성
+        서버로 폼 데이터가 전송될때 각 입력요소의 name속성값이 key로 사용됨
+
+        -value : 서버에 전송되는 값
+        -text에서는 초기값
+        -button에서는 내부 텍스트
+        -checkbox에서는 서버에 제출되는 값
+
+        -plaeceholder : 입력요소에 대한 힌트
+        값을 입력하면 자동으로 지워지며 서버에 전송되는 값이 아님
+
+        -required : 필수입력란으로 변경
+        입력유무를 유효성 검사 진행
+
+        -disabled : 사용자가 값을 입력하지 못하도록 영역을 잠금
+        (서버에 값도 전송하지 않음), 조건부 비활성, 사용자 권한에 따른 입력 제한
+
+        -readonly : 사용자가 값을 입력하지 못하도록 영역을 잠금
+        (서버에 값은 전송됨) , 기존 데이터에서 수정
+
+        -size : input창에서 길이 조절 속성
+        px이나 %처럼 단위의 개념이 아니라 글자수 개념으로 생성 (기본값20)
+        width처럼 값을 정확하게 파악하기 어려우며,보통적으로는 사용하지 않는 속성
+        width와 섞어서도 사용하지 않는다(width만 사용)
+
+        -maxlength : 최대 글자 수
+        -minlength : 최소 글자 수 (유효성 검사를 진행)
+
+        -checked :체크박스형태에서 사용하며, 선택지 중에서 미리 선택되도록 하는 속성
+        -selected : select에서만 사용하며, 옵션중에서 미리 선택되도록 하는 속성
+
+
+    -->
+
+
+
+    <form action="" method=""><!--데이터 입력영역에 대한 컨테이너-->
+        <!--input태그의 종류-->
+        <input placeholder="텍스트를 입력하세요" size="100" maxlength="10" minlength="4"> <!--type을 명시하지 않으면 기본type은 text가 된다.-->
+        <input type="text" value="124" required><!--텍스트 기본 타입-->
+        <input type="password" maxlength="10"><!--텍스트를 암호화해서 출력-->
+        <input type="number" max="100" min="10"><!--숫자만 입력할 수 있다. 문자는 입력 안됨-->
+        <input type="email"><!--이메일 유효성 검사를 하는 타입-->
+        <input type="color"><!--color를 선택할수 있는 선택창이 생성됨 ie는 미지원-->
+        <input type="date"><!--날짜를 지정할 수 있는 캘린터 창이 생성 ie미지원-->
+
+        <!--input 버튼 타입-->
+        <input type="file"><!--파일 업로드 버튼-->
+        <input type="button" value="기본버튼">
+        <!--아무런 기능을 하지 않는 버튼 / 스크립트로 기능을 연결 -->
+        <button type="button">버튼</button>
+        <!--button 태그는 form태그 밖에서도 사용할 수 있는 버튼
+        button태그의 기본값은 submit의 기능을 한다.
+        기능을 빼고 싶으면 type=button 이라고 명시할 것
+        -->
+        <input type="submit"><!--데이터를 서버로 보내는 역할을 하는 버튼-->
+        <input type="reset"><!--내용 삭제 버튼-->
+
+        <input type="hidden">
+        <!--사용자에게 보이지 않게 데이터를 전송하거나 받아올대 사용하는 역할
+        1. 폼의 추가 적으로 데이터를 전송 : 사용자가 볼 필요는 없지만
+        서버로 전송할 데이터를 포함해야 하는 경우
+        ex)로그인되어 있는 아이디를 전송 / 세션값 전송
+
+        2. 페이지 상태 유지 : 여러 단계로 이루어진 폼에서 이전 단계에서 
+        입력한 값을 다음 단계로 전달해줄때
+
+        3. 동적인 데이터 전송 : 자바스크립트를 이용해서 동적으로 값을 설정 후 데이터가
+        전송될때 포함하여 전송
+        -->
+
+        <!--체크박스-->
+        <input type="checkbox">체크 박스 <!--중복선택이 가능한 체크박스-->
+        <input type="radio">라디오 체크 박스 <!--중복선택이 불가능한 체크박스-->
+
+        <div>
+            <span>성별</span>
+            <input type="radio" name="gender" value="male" checked>남자
+            <input type="radio" name="gender" value="female">여자
+        </div>
+
+        <!--select-->
+        <select name="month">
+            <option value="jan">1월</option>
+            <option value="feb">2월</option>
+            <option value="mar">3월</option>
+            <option value="apr">4월</option>
+            <option value="may" selected>5월</option>
+        </select>
+
+        <input type="text" style="height : 100px">
+        <!--input으로 만든 text타입은 기본적으로 inline요소이기 때문에 한줄로만 제공됨-->
+
+        <textarea>
+            
+        </textarea>
+        <!--여러줄을 사용할때에는 textarea를 사용
+            단 사용자가 textarea의 창의 크기를 조절할 수 있기 때문에
+            조절하지 못하도록 css로 제어해야 한다.
+            -->
+
+        
+
+
+    </form>
+</body>
+</html>
